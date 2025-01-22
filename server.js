@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 // API Endpoint
 app.get('/api', (req, res) => {
     res.json({ message: 'Hello from Backend!' },
-             { version: 'ERROR VER.' });
+    res.json({ version: 'ERR VER.' }
 });
 
 // จัดการเส้นทางอื่น ๆ ด้วย React
