@@ -17,7 +17,8 @@ app.get('/api', (req, res) => {
         message: '',
         version: '2.3.8',
         festival: 'China New Year',
-        az_discord_profile: 'https://discord.com/users/1119676900462313572'
+        az_discord_profile: 'https://discord.com/users/1119676900462313572',
+        doc: 'https://code-101-or-documents.gitbook.io/'
     });
 });
 
