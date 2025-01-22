@@ -14,9 +14,9 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 // API Endpoint
 app.get('/api', (req, res) => {
     res.json({
-        message: 'Hello from Backend!',
-        version: '2.3.8 API',
-        festival: 'China\n New Year'
+        message: 'Hello from \nBackend!',
+        version: '2.3.8',
+        festival: 'China New Year'
     });
 });
 
