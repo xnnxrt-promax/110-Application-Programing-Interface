@@ -16,7 +16,7 @@ app.get('/api', (req, res) => {
     res.json({
         message: 'Hello from Backend!',
         version: 'ERR VER.',
-        head1: '110 Code คืออะไร?<br></br>',
+        head1: '110 Code คืออะไร?',
         des1: 'คือโปรเจคที่จะรวมการเขียนโค้ดของ Overdrive Team Developer ไว้ในที่เดียวโดยจะมีตั่งแต่ สคริป Roblox, บอทต่างๆ, open src website, Roblox Model และอื่นๆ',
         head2: 'โปรเจคนี้ใครเป็นคนพัฒนา?',
         des2: 'จัดทำโดย Az และทีมพัฒนาอย่าง Overdrive Team',
