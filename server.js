@@ -16,7 +16,7 @@ app.get('/api', (req, res) => {
     res.json({
         message: 'Hello from Backend!',
         version: '2.3.8 API',
-        festival: 'China New Year'
+        festival: 'China\n New Year'
     });
 });
 
