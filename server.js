@@ -16,8 +16,7 @@ app.get('/api', (req, res) => {
     res.json({
         message: '',
         version: '2.3.8',
-        festival: 'China New Year',
-        Google_Button: '<button className="google-login-button" onClick={renderProps.onClick}>Login with Google</button>'
+        festival: 'China New Year'
     });
 });
 
