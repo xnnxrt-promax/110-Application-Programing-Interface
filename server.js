@@ -15,7 +15,8 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.get('/api', (req, res) => {
     res.json({
         message: 'Hello from Backend!',
-        version: 'ERR VER.'
+        version: '2.3.8 API',
+        festival: 'China New Year'
     });
 });
 
