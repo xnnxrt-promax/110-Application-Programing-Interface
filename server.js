@@ -19,7 +19,9 @@ app.get('/api', (req, res) => {
         festival: 'China New Year',
         az_discord_profile: 'https://discord.com/users/1119676900462313572',
         doc: 'https://code-101-or-documents.gitbook.io/',
-        aungpao_link: 'https://pornhub.org'
+        aungpao_link: 'https://pornhub.org',
+        Google_clientId: '298579406026-9utgproshifbaeqpc460p49e522tj6f2.apps.googleusercontent.com',
+        message_login: 'สวัสดี ท่านสามารถกด Login ด้านล่างเพื่อเข้าสู่ระบบได้เลยครับ'
     });
 });
 
