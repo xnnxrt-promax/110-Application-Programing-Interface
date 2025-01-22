@@ -5,15 +5,20 @@ const path = require('path');
 const app = express();
 const PORT = 5173;
 
-// ตั้งค่า CORS เพื่ออนุญาตเฉพาะ https://110.ovdc.xyz
-const corsOptions = {
-    origin: 'https://110.ovdc.xyz', // อนุญาตเฉพาะโดเมนนี้
-    methods: ['GET', 'POST'], // อนุญาตเฉพาะวิธีการเหล่านี้
-    allowedHeaders: ['Content-Type', 'Authorization'], // อนุญาตเฉพาะ header เหล่านี้
-};
-app.use(cors(corsOptions));
+// สร้างรายการ API Keys ที่ได้รับอนุญาต
+const validApiKeys = ['lkaJLDSJjajdjlaksjdhadaJHK2W@)Ilkajda']; // ใส่คีย์ที่อนุญาต
 
+app.use(cors());
 app.use(express.json());
+
+// Middleware ตรวจสอบ API Key
+app.use('/api', (req, res, next) => {
+    const apiKey = req.headers['x-api-key']; // ดึงค่า API Key จาก header
+    if (!apiKey || !validApiKeys.includes(apiKey)) {
+        return res.status(403).json({ error: 'Invalid or missing API key' });
+    }
+    next(); // อนุญาตให้ผ่านไปยัง endpoint ถ้าคีย์ถูกต้อง
+});
 
 // เสิร์ฟไฟล์ React build
 app.use(express.static(path.join(__dirname, 'frontend/build')));
@@ -29,7 +34,7 @@ app.get('/api', (req, res) => {
         aungpao_link: 'https://pornhub.org',
         Google_clientId: '298579406026-9utgproshifbaeqpc460p49e522tj6f2.apps.googleusercontent.com',
         message_login: 'สวัสดี ท่านสามารถกด Login ด้านล่างเพื่อเข้าสู่ระบบได้เลยครับ'
-    });    
+    });
 });
 
 // จัดการเส้นทางอื่น ๆ ด้วย React
