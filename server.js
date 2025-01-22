@@ -15,7 +15,7 @@ app.use(express.json());
 app.use('/api', (req, res, next) => {
     const apiKey = req.headers['x-api-key']; // ดึงค่า API Key จาก header
     if (!apiKey || !validApiKeys.includes(apiKey)) {
-        return res.status(403).json({ error: 'Invalid or missing API key' });
+        return res.status(403).json({ kuy: 'มึงดูอะไรมึง ทำเองดิบ้างไอควาย' });
     }
     next(); // อนุญาตให้ผ่านไปยัง endpoint ถ้าคีย์ถูกต้อง
 });
