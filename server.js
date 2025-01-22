@@ -15,7 +15,15 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.get('/api', (req, res) => {
     res.json({
         message: 'Hello from Backend!',
-        version: 'ERR VER.'
+        version: 'ERR VER.',
+        head1: '110 Code คืออะไร?',
+        des1: 'คือโปรเจคที่จะรวมการเขียนโค้ดของ Overdrive Team Developer ไว้ในที่เดียวโดยจะมีตั่งแต่ สคริป Roblox, บอทต่างๆ, open src website,\n Roblox Model และอื่นๆ',
+        head2: '',
+        des2: '',
+        head3: '',
+        des3: '',
+        head4: '',
+        des4: ''
     });
 });
 
