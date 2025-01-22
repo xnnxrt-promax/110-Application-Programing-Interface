@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 // API Endpoint
 app.get('/api', (req, res) => {
     res.json({
-        message: 'Hello from \nBackend!',
+        message: '<br />คุณไม่ได้รับอนุญาติให้ใช้ API นี่',
         version: '2.3.8',
         festival: 'China New Year'
     });
