@@ -5,7 +5,14 @@ const path = require('path');
 const app = express();
 const PORT = 5173;
 
-app.use(cors());
+// ตั้งค่า CORS เพื่ออนุญาตเฉพาะ https://110.ovdc.xyz
+const corsOptions = {
+    origin: 'https://110.ovdc.xyz', // อนุญาตเฉพาะโดเมนนี้
+    methods: ['GET', 'POST'], // อนุญาตเฉพาะวิธีการเหล่านี้
+    allowedHeaders: ['Content-Type', 'Authorization'], // อนุญาตเฉพาะ header เหล่านี้
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // เสิร์ฟไฟล์ React build
