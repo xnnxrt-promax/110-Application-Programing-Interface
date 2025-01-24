@@ -18,12 +18,17 @@ app.use(cors({
 
 app.use(express.json());
 
-// Middleware สำหรับป้องกัน Postman, Curl และคำขอที่ไม่ได้รับอนุญาต
+// Middleware สำหรับข้ามการตรวจสอบหากมาจาก 110.ovdc.xyz
 app.use((req, res, next) => {
-    const userAgent = req.headers['user-agent'] || '';
-    const referer = req.headers['referer'] || '';
+    const referer = req.headers['referer'] || req.headers['origin'] || '';
+
+    // ถ้ามาจาก 110.ovdc.xyz ให้ข้ามการตรวจสอบทั้งหมด
+    if (referer && referer.startsWith('https://110.ovdc.xyz')) {
+        return next();
+    }
 
     // ตรวจสอบ User-Agent: บล็อก Postman, Curl หรือเครื่องมือที่ไม่ใช่ browser-based
+    const userAgent = req.headers['user-agent'] || '';
     if (/PostmanRuntime|curl|wget|python|node/.test(userAgent)) {
         return res.status(403).json({ error: 'Access denied: Invalid User-Agent' });
     }
