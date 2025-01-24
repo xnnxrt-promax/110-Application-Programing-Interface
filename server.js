@@ -21,8 +21,11 @@ app.use(express.json());
 // Middleware ตรวจสอบ API Key
 app.use('/api', (req, res, next) => {
     const apiKey = req.headers['x-api-key']; // ดึงค่า API Key จาก header
+    const clientIp = req.headers['x-forwarded-for'] || req.ip; // ดึง IP ต้นทาง
+    console.log(`Request จาก IP: ${clientIp}`); // Log IP ต้นทาง
+    
     if (!apiKey || !validApiKeys.includes(apiKey)) {
-        return res.status(403).json({ kuy: 'มึงดูอะไรมึง ทำเองบ้างดิไอควาย ไร้สมอง' });
+        return res.status(403).json({ error: 'Unauthorized access' });
     }
     next(); // อนุญาตให้ผ่านไปยัง endpoint ถ้าคีย์ถูกต้อง
 });
