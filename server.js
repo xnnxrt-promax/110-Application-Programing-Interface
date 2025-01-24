@@ -10,7 +10,7 @@ const validApiKeys = ['lkaJLDSJjajdjlaksjdhadaJHK2W@)Ilkajda']; // ใส่ค�
 
 // ตั้งค่า CORS
 app.use(cors({
-    origin: 'https://110.ovdc.xyz/', // อนุญาตเฉพาะเว็บนี้
+    origin: 'https://110.ovdc.xyz', // อนุญาตเฉพาะเว็บนี้
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // อนุญาตเฉพาะ method ที่กำหนด
     allowedHeaders: ['Content-Type', 'x-api-key'], // อนุญาตเฉพาะ headers ที่กำหนด
     credentials: true // ถ้าต้องการส่ง cookie หรือ authentication
@@ -18,17 +18,12 @@ app.use(cors({
 
 app.use(express.json());
 
-// Middleware สำหรับข้ามการตรวจสอบหากมาจาก 110.ovdc.xyz
+// Middleware สำหรับป้องกัน Postman, Curl และคำขอที่ไม่ได้รับอนุญาต
 app.use((req, res, next) => {
-    const referer = req.headers['referer'] || req.headers['origin'] || '';
-
-    // ถ้ามาจาก 110.ovdc.xyz ให้ข้ามการตรวจสอบทั้งหมด
-    if (referer && referer.startsWith('https://110.ovdc.xyz')) {
-        return next();
-    }
+    const userAgent = req.headers['user-agent'] || '';
+    const referer = req.headers['referer'] || '';
 
     // ตรวจสอบ User-Agent: บล็อก Postman, Curl หรือเครื่องมือที่ไม่ใช่ browser-based
-    const userAgent = req.headers['user-agent'] || '';
     if (/PostmanRuntime|curl|wget|python|node/.test(userAgent)) {
         return res.status(403).json({ error: 'Access denied: Invalid User-Agent' });
     }
@@ -58,7 +53,7 @@ app.use((req, res, next) => {
     const userAgent = req.headers['user-agent'] || '';
     const isBrowser = /Mozilla|Chrome|Safari|Edge|Firefox/.test(userAgent);
 
-    if (isBrowser && req.originalUrl === '/api') {
+    if (isBrowser && req.originalUrl === '/') {
         return res.status(403).send('Direct access to this page is not allowed.');
     }
     next();
