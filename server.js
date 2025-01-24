@@ -10,7 +10,7 @@ const validApiKeys = ['lkaJLDSJjajdjlaksjdhadaJHK2W@)Ilkajda']; // ใส่ค�
 
 // ตั้งค่า CORS
 app.use(cors({
-    origin: 'https://110.ovdc.xyz', // อนุญาตเฉพาะเว็บนี้
+    origin: 'https://110.ovdc.xyz/', // อนุญาตเฉพาะเว็บนี้
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // อนุญาตเฉพาะ method ที่กำหนด
     allowedHeaders: ['Content-Type', 'x-api-key'], // อนุญาตเฉพาะ headers ที่กำหนด
     credentials: true // ถ้าต้องการส่ง cookie หรือ authentication
