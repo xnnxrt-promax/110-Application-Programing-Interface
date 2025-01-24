@@ -30,6 +30,17 @@ app.use('/api', (req, res, next) => {
     next(); // อนุญาตให้ผ่านไปยัง endpoint ถ้าคีย์ถูกต้อง
 });
 
+// Middleware ป้องกันการเข้าถึงหน้าเว็บตรงๆ
+app.use((req, res, next) => {
+    const userAgent = req.headers['user-agent'] || '';
+    const isBrowser = /Mozilla|Chrome|Safari|Edge|Firefox/.test(userAgent);
+
+    if (isBrowser && req.originalUrl === '/') {
+        return res.status(403).send('Direct access to this page is not allowed.');
+    }
+    next();
+});
+
 // เสิร์ฟไฟล์ React build
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 
