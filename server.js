@@ -53,7 +53,7 @@ app.use((req, res, next) => {
     const userAgent = req.headers['user-agent'] || '';
     const isBrowser = /Mozilla|Chrome|Safari|Edge|Firefox/.test(userAgent);
 
-    if (isBrowser && req.originalUrl === '/') {
+    if (isBrowser && req.originalUrl === '/api') {
         return res.status(403).send('Direct access to this page is not allowed.');
     }
     next();
