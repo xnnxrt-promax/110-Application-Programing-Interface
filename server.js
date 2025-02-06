@@ -67,7 +67,7 @@ app.get('/api', (req, res) => {
     res.json({
         message: '',
         version: '2.3.9',
-        festival: 'China New Year',
+        festival: 'Valentine 💘',
         az_discord_profile: 'https://discord.com/users/1119676900462313572',
         doc: 'https://code-101-or-documents.gitbook.io/',
         aungpao_link: 'https://pornhub.org',
