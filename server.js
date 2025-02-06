@@ -66,7 +66,7 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.get('/api', (req, res) => {
     res.json({
         message: '',
-        version: '2.3.9',
+        version: '2.4.0',
         festival: 'Valentine 💘',
         az_discord_profile: 'https://discord.com/users/1119676900462313572',
         doc: 'https://code-101-or-documents.gitbook.io/',
