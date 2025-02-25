@@ -66,10 +66,10 @@ app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.get('/api', (req, res) => {
     res.json({
         message: '',
-        version: '2.4.1',
-        festival: '🪣 Songkran is comming.',
+        version: '2.4.2',
+        festival: '🪣 Songkran is comming',
         az_discord_profile: 'https://discord.com/users/1119676900462313572',
-        doc: 'https://code-101-or-documents.gitbook.io/',
+        doc: 'https://110.ovdc.xyz',
         aungpao_link: 'https://pornhub.org',
         Google_clientId: '298579406026-9utgproshifbaeqpc460p49e522tj6f2.apps.googleusercontent.com',
         message_login: 'สวัสดี ท่านสามารถกด Login ด้านล่างเพื่อเข้าสู่ระบบได้เลยครับ',
