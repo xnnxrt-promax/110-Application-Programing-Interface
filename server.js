@@ -73,7 +73,7 @@ app.get('/api', (req, res) => {
         aungpao_link: 'https://pornhub.org',
         Google_clientId: '298579406026-9utgproshifbaeqpc460p49e522tj6f2.apps.googleusercontent.com',
         message_login: 'สวัสดี ท่านสามารถกด Login ด้านล่างเพื่อเข้าสู่ระบบได้เลยครับ',
-        music: '📀 กุหลาบ (KULARB) F.HERO Ft. ก้านตอง ทุ่งเงิน x SARAN'
+        music: '📀 YOUNGOHM - นครดารา'
     });
 });
 
