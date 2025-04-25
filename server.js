@@ -67,7 +67,7 @@ app.get('/api', (req, res) => {
     res.json({
         message: '',
         version: 'Serenely Day 2.5.3 🟢',
-        festival: '💦 Songkran Day',
+        festival: '🧑‍🎓 Back to school',
         az_discord_profile: 'https://discord.com/users/1119676900462313572',
         doc: 'https://110.ovdc.xyz',
         aungpao_link: 'https://pornhub.org',
