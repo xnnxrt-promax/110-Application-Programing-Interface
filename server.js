@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 });
 
 // Middleware ตรวจสอบ API Key
-app.use('/api', (req, res, next) => {
+app.use('/serenely', (req, res, next) => {
     const apiKey = req.headers['x-api-key']; // ดึงค่า API Key จาก header
     const clientIp = req.headers['x-forwarded-for'] || req.ip; // ดึง IP ต้นทาง
     console.log(`Request จาก IP: ${clientIp}`); // Log IP ต้นทาง
@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // API Endpoint
-app.get('/api', (req, res) => {
+app.get('/serenely', (req, res) => {
     res.json({
         message: '',
         version: 'Serenely Day 2.5.3 🟢',
