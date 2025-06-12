@@ -24,9 +24,9 @@ app.use((req, res, next) => {
     const referer = req.headers['referer'] || '';
 
     // ตรวจสอบ User-Agent: บล็อก Postman, Curl หรือเครื่องมือที่ไม่ใช่ browser-based
-    if (/PostmanRuntime|curl|wget|python|node/.test(userAgent)) {
-        return res.status(403).json({ error: 'Access denied: Invalid User-Agent' });
-    }
+    // if (/PostmanRuntime|curl|wget|python|node/.test(userAgent)) {
+    //     return res.status(403).json({ error: 'Access denied: Invalid User-Agent' });
+    // }
 
     // ตรวจสอบ Referer: อนุญาตเฉพาะคำขอที่มาจากเว็บไซต์ที่กำหนด
     if (referer && !referer.startsWith('https://110.ovdc.xyz')) {
