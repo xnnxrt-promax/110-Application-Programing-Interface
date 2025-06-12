@@ -9,12 +9,12 @@ const PORT = 5173;
 const validApiKeys = ['lkaJLDSJjajdjlaksjdhadaJHK2W@)Ilkajda']; // ใส่คีย์ที่อนุญาต
 
 // ตั้งค่า CORS
-app.use(cors({
-    origin: ['https://110.ovdc.xyz', 'https://serenely.day'],// อนุญาตเฉพาะเว็บนี้
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // อนุญาตเฉพาะ method ที่กำหนด
-    allowedHeaders: ['Content-Type', 'x-api-key'], // อนุญาตเฉพาะ headers ที่กำหนด
-    credentials: true // ถ้าต้องการส่ง cookie หรือ authentication
-}));
+// app.use(cors({
+//     origin: ['https://110.ovdc.xyz', 'https://serenely.day'],// อนุญาตเฉพาะเว็บนี้
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'], // อนุญาตเฉพาะ method ที่กำหนด
+//     allowedHeaders: ['Content-Type', 'x-api-key'], // อนุญาตเฉพาะ headers ที่กำหนด
+//     credentials: true // ถ้าต้องการส่ง cookie หรือ authentication
+// }));
 
 app.use(express.json());
 
